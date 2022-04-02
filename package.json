@@ -8,7 +8,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "deploy": "node autodeploy"
+    "deploy": "node deploy.boyl"
   },
   "dependencies": {
     "ftp": "^0.3.10",
