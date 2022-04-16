@@ -11,7 +11,4 @@ import { clean } from './clean';
 import { styles } from './styles';
 import { scripts } from './scripts';
 
-export const build = series(
-  clean,
-  parallel(styles, scripts)
-);
+export const build = series(parallel(styles, scripts));

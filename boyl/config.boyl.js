@@ -1,4 +1,4 @@
-export default {
+const config = {
     // ====================================================================
     // CONFIGURATION DES PARAMÈTRES DU SITE
     // ====================================================================
@@ -26,4 +26,14 @@ export default {
             rejectUnsecure: false,
         },
     },
+
+    // CONFIGURATION DE L'AUTODEPLOY LOCAL
+    local: {
+        // Chemin dans lequel on déploi
+        // Si path est NULL, cette fonction ne marchera pas.
+        // path: null,
+        path: '/Users/edouardjamieson/Desktop/Prog/test_boyl/app/public/wp-content/themes/mon_theme',
+    },
 };
+
+module.exports = config;

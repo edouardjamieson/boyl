@@ -11,37 +11,9 @@
 
 const ftp = require('ftp');
 const fs = require('fs');
-import config from '../config.boyl.js';
+const config = require('./config.boyl').default;
 const client = new ftp();
-
-// ====================================================================
-// HELPERS
-// ====================================================================
-function walk(dir) {
-    let results = [];
-    const list = fs.readdirSync(dir);
-
-    list.forEach((file) => {
-        file = dir + '/' + file;
-        const stat = fs.statSync(file);
-        if (stat && stat.isDirectory()) {
-            /* Recurse into a subdirectory */
-            results = results.concat(walk(file));
-        } else {
-            /* Is a file */
-            results.push(file);
-        }
-    });
-    return results;
-}
-
-function say(type, string) {
-    if (type === 'alert') {
-        console.log('\u001b[' + 32 + 'm' + `✅ ${string}` + '\u001b[0m');
-    } else if (type === 'error') {
-        console.log('\u001b[' + 31 + 'm' + `❌ ${string}` + '\u001b[0m');
-    }
-}
+const { say, walk } = require('./utils.boyl');
 
 // ====================================================================
 // Connexion
@@ -57,7 +29,7 @@ client.connect({
 });
 
 // ====================================================================
-// Appelé lorsqu'on se connect
+// Appelé lorsqu'on se connecte
 // ====================================================================
 client.on('ready', () => {
     console.clear();

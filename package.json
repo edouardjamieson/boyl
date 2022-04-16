@@ -8,9 +8,11 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "deploy": "node deploy.boyl"
+    "deploy": "node boyl/deploy.boyl",
+    "local": "node boyl/local.boyl"
   },
   "dependencies": {
+    "fs-extra": "^10.0.1",
     "ftp": "^0.3.10",
     "ftp-deploy": "^2.4.1",
     "gsap": "^3.9.1",
